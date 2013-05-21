@@ -1,5 +1,5 @@
 # A module which sets up a celestial instance
-class celestial($repo_url='') {
+class celestial($repo_url='http://celestial-ops.com/ubuntu',$key_id='4BFCD8F9') {
 
   include jdk
 
