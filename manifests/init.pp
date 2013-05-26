@@ -20,7 +20,7 @@ class celestial(
 
   apt::key {'celestial':
     key        => $key_id,
-    key_source => $key_url 
+    key_source => $key_url
   } ->
 
   apt::source { 'celestial':
