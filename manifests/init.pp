@@ -1,5 +1,9 @@
 # A module which sets up a celestial instance
-class celestial($repo_url='') {
+class celestial(
+  $repo_url='http://celestial-ops.com/ubuntu',
+  $key_id='E29035F0',
+  $key_url = 'http://keyserver.ubuntu.com:11371/pks/lookup?op=get&fingerprint=on&search=0x8B095396E29035F0'
+) {
 
   include jdk
 
@@ -15,16 +19,16 @@ class celestial($repo_url='') {
   }
 
   apt::key {'celestial':
-    key        => '4BFCD8F9',
-    key_source => "${repo_url}/celestialops.gpg"
+    key        => $key_id,
+    key_source => $key_url 
   } ->
 
   apt::source { 'celestial':
     location    => $repo_url,
     release     => 'quantal',
     repos       => 'main',
-    key         => '4BFCD8F9',
-    key_source  => "${repo_url}/celestialops.gpg",
+    key         => $key_id,
+    key_source  => $key_url,
     include_src => false,
   } ->
 
