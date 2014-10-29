@@ -1,0 +1,3 @@
+#!/bin/sh
+
+cd /usr/share/celestial/ && sh /usr/share/celestial/run.sh
