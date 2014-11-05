@@ -20,9 +20,7 @@ class celestial(
     include celestial::runit
   }
 
-  class{ 'redis':
-    append => true
-  }
+  ensure_resource('class','redis',{append => true})
 
   apt::key {'celestial':
     key        => $key_id,
