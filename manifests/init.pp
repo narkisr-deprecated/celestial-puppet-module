@@ -6,19 +6,23 @@ class celestial(
 ) {
 
   class{'jdk':
-   version => '7'
+    version => '7'
   }
 
-  service{'celestial':
-    ensure    => running,
-    enable    => true,
-    hasstatus => true,
-    require   => [Package['celestial'], Service['redis-server']]
+  if($::virtual!='docker'){
+    $daemonize = true
+    service{'celestial':
+      ensure    => running,
+      enable    => true,
+      hasstatus => true,
+      require   => [Package['celestial'], Service['redis-server']]
+    }
+  } else {
+    $daemonize = false
+    include celestial::runit
   }
 
-  class{ 'redis':
-    append => true
-  }
+  ensure_resource('class','redis',{append => true, daemonize => $daemonize})
 
   apt::key {'celestial':
     key        => $key_id,
