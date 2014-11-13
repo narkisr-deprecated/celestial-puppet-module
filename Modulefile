@@ -1,11 +1,9 @@
-name    'static-modules/celestial'
+name    'strings/celestial'
 version '0.0.1'
 source 'UNKNOWN'
-author 'static'
+author 'narkisr'
 license 'Apache License, Version 2.0'
 summary 'UNKNOWN'
-description 'UNKNOWN'
-project_page 'UNKNOWN'
+description 'A module for setting up Celestial'
+project_page 'celestial-ops.com'
 
-## Add dependencies, if any:
-# dependency 'username/name', '>= 1.2.0'
