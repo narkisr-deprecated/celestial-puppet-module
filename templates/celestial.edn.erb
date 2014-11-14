@@ -1,0 +1,58 @@
+; see http://celestial-ops.com/posts/configuration.html
+{
+ :celestial {
+   :port 8082
+   :https-port 8443
+   :log {
+     :level :info
+     :path "/var/log/celestial.log"
+   }
+
+   :cert {
+     :password "<%= @cert_password %>"
+     :keystore "<%= @cert_keystore %>"
+   }
+
+ }
+
+ :hypervisor {
+   <% @envs.each do |e, hyps| %>
+   :<%= e %> {
+     <% hyps.each do |h, p| -%>
+       <% if(h.eql?('physical')) %>
+    :physical { }
+       <% elsif(h.eql?('proxmox')) %>
+    :proxmox{
+    }
+       <% end -%>
+   <% end %>
+   }
+  <% end %>
+  }
+  
+ :redis {
+   :host "localhost"
+ } 
+
+ :elasticsearch {
+   :path.data "/var/lib/es/data/"
+   :path.work "/var/lib/es/work/"
+ }
+
+ :ssh {
+   :private-key-path "/root/.ssh/id_rsa_celestial"
+ }
+
+ :hooks {
+   ;; hooks.hubot/notify-hubot {
+   ;;      :hubot-host "http://1.2.3.4:8083" 
+   ;; }
+   ;; hooks.dnsmasq/update-dns {
+   ;;      :dnsmasq "1.2.3.4" :user "" :domain ""
+   ;; }
+   ;; hooks.tinymasq/update-dns {
+   ;;   :tinymasq "https://192.168.1.10:8444" :user "admin" :password "changeme" :domain "local"
+   ;; }
+
+ }
+}

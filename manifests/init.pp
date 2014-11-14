@@ -5,6 +5,8 @@ class celestial(
   $key_url = 'http://keyserver.ubuntu.com:11371/pks/lookup?op=get&fingerprint=on&search=0x8B095396E29035F0'
 ) {
 
+  include celestial::config
+  
   class{'jdk':
    version => '7'
   }
