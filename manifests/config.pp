@@ -27,6 +27,7 @@ class celestial::config(
       content => template('celestial/celestial.edn.erb'),
       owner   => root,
       group   => root,
+      require => Package['celestial']
     }
   }
 }
