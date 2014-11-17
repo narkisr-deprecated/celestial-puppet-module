@@ -4,8 +4,14 @@
    :port 8082
    :https-port 8443
    :log {
-     :level :info
-     :path "/var/log/celestial.log"
+     :level <%= @log['level'] %>
+     :path <%= @log['path'] %>
+     <% if(@log['gelf']!= nil) -%>
+     :gelf {
+        :host @log['gelf']['host']
+        :type :kibana
+      }
+     <% end %>
    }
 
    :cert {

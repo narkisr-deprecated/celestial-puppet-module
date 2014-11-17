@@ -1,0 +1,6 @@
+---
+celestial::config::log:
+  level: ':info'
+  path: '/var/log/celestial.log'
+  gelf:
+    host: 'localhost'

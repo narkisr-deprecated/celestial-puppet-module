@@ -3,7 +3,8 @@ class celestial::config(
   $envs={},
   $ssh_key='',
   $cert_password='',
-  $cert_keystore=''
+  $cert_keystore='',
+  $log = {}
 ){
   if($ssh_key!=''){
     file{'/root/.ssh':
