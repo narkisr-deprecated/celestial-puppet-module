@@ -5,7 +5,7 @@
    :https-port 8443
    :log {
      :level <%= @log['level'] %>
-     :path <%= @log['path'] %>
+     :path "<%= @log['path'] %>"
      <% if(@log['gelf']!= nil) %>
      :gelf {
         :host "<%= @log['gelf']['host'] %>"
