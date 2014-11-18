@@ -6,9 +6,9 @@
    :log {
      :level <%= @log['level'] %>
      :path <%= @log['path'] %>
-     <% if(@log['gelf']!= nil) -%>
+     <% if(@log['gelf']!= nil) %>
      :gelf {
-        :host @log['gelf']['host']
+        :host "<%= @log['gelf']['host'] %>"
         :type :kibana
       }
      <% end %>
