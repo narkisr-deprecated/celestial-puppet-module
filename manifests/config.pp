@@ -4,7 +4,8 @@ class celestial::config(
   $ssh_key='',
   $cert_password='',
   $cert_keystore='',
-  $log = {}
+  $log = {},
+  $reset_on=':start'
 ){
   if($ssh_key!=''){
     file{'/root/.ssh':
