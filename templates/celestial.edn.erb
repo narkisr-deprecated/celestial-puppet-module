@@ -18,15 +18,15 @@
      :password "<%= @cert_password %>"
      :keystore "<%= @cert_keystore %>"
    }
+
+   :job {
+     :reset-on <%= @reset_on %>
+     ;;    :expiry 30
+     ;;    :wait-time 5
+   }
   }
 
-  :job {
-    :reset-on <%= @reset_on %>
-    ;;    :expiry 30
-    ;;    :wait-time 5
-   }
-
-
+  
  :hypervisor {
    <% @envs.each do |e, hyps| %>
    :<%= e %> {
