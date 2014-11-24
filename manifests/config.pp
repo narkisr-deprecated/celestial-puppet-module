@@ -10,10 +10,12 @@ class celestial::config(
   if($ssh_key!=''){
     file{'/root/.ssh':
       ensure => directory,
+      mode   => '0755'
     } ->
 
     file{'/root/.ssh/id_rsa_celestial':
-      ensure  => present
+      ensure  => present,
+      mode   => '0600'
     } ->
 
     file_line { 'celestial key':
