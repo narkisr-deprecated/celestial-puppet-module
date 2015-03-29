@@ -24,7 +24,7 @@ class celestial(
     include celestial::runit
   }
 
-  ensure_resource('class','redis',{append => true, daemonize => $daemonize})
+  ensure_resource('class','redis',{append => true})
 
   apt::key {'celestial':
     key        => $key_id,
@@ -43,5 +43,4 @@ class celestial(
   package{'celestial':
     ensure  => present
   }
-
 }
