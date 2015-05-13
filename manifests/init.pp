@@ -8,7 +8,8 @@ class celestial(
   include celestial::config
   
   class{'jdk':
-    version => '7'
+    version => '7',
+    jce     => true
   }
 
   if($::virtual!='docker'){
