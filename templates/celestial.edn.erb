@@ -9,7 +9,8 @@
      <% if(@log['gelf']!= nil) %>
      :gelf {
         :host "<%= @log['gelf']['host'] %>"
-        :type :kibana
+        :type :kibana3
+	  :port 80
       }
      <% end %>
    }
@@ -23,6 +24,9 @@
      :reset-on <%= @reset_on %>
      ;;    :expiry 30
      ;;    :wait-time 5
+     :workers {
+	 :staging 2
+     }
    }
   }
 
