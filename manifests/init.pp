@@ -25,6 +25,13 @@ class celestial(
     include celestial::runit
   }
 
+  # increase entropy for sshj
+  if($::virtual!='physical' && $::virtual!='docker'){
+    package{'rng-tools':
+      ensure  => present
+    }
+  }
+
   ensure_resource('class','redis',{append => true})
 
   apt::key {'celestial':
