@@ -9,7 +9,7 @@ class celestial(
   
   class{'jdk':
     version => '7',
-    jce     => true
+    enable_jce     => true
   }
 
   if($::virtual!='docker'){
@@ -26,7 +26,7 @@ class celestial(
   }
 
   # increase entropy for sshj
-  if($::virtual!='physical' && $::virtual!='docker'){
+  if($::virtual!='physical' and $::virtual!='docker'){
     package{'rng-tools':
       ensure  => present
     }
