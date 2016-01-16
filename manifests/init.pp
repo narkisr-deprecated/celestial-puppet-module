@@ -41,7 +41,7 @@ class celestial(
 
   apt::source { 'celestial':
     location    => $repo_url,
-    release     => 'quantal',
+    release     => 'wily',
     repos       => 'main',
     key         => $key_id,
     key_source  => $key_url,
